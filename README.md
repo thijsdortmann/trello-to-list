@@ -1,8 +1,4 @@
 # trello-to-list
 Takes a Trello JSON feed, extracts all lists and associated cards and adds them to a HTML list. Made for use at [SNT](https://www.snt.utwente.nl) to easily get action points from the Trello board and add them to the meeting agenda.
 
-Can be used directly at https://thijsdortmann.github.io/trello-to-list/.
-
-For a bookmarklet version of this tool, please drag the link below to your bookmark bar.
-
-[Trello-To-List](javascript:(function()%7Bif(location.href.startsWith('https%3A%2F%2Ftrello.com%2Fb%2F'))%20%7Blet%20boardId%20%3D%20%2Fhttps%3A%5C%2F%5C%2Ftrello.com%5C%2Fb%5C%2F(%5Cw%2B)%5C%2F%5Cw%2B%2F.exec(location.href)%5B1%5D%3Bfetch('https%3A%2F%2Ftrello.com%2Fb%2F'%20%2B%20boardId%20%2B%20'.json').then(function(response)%20%7Breturn%20response.json()%3B%7D).then(function(data)%20%7Bconst%20listTab%20%3D%20window.open('').document%3Bconst%20lists%20%3D%20%7B%7D%3Bdata.lists.forEach(function(l)%20%7Blists%5Bl.id%5D%20%3D%20%7B'name'%20%3A%20l.name%2C'cards'%20%3A%20%5B%5D%7D%3B%7D)%3Bdata.cards.forEach(function(c)%20%7Bif(!c.closed)%20%7Blists%5Bc.idList%5D.cards.push(%7B'name'%20%3A%20c.name%7D)%3B%7D%7D)%3Blet%20output%20%3D%20%22%22%3Bfor%20(var%20key%20in%20lists)%20%7Bif%20(lists.hasOwnProperty(key))%20%7Bvar%20l%20%3D%20lists%5Bkey%5D%3BlistTab.write(%22%3Ch1%3E%22%20%2B%20l.name%20%2B%20%22%3C%2Fh1%3E%3Cul%3E%22)%3Bl.cards.forEach(function(c)%20%7BlistTab.write(%22%3Cli%3E%22%20%2B%20c.name%20%2B%20%22%3C%2Fli%3E%22)%3B%7D)%3BlistTab.write(%22%3C%2Ful%3E%22)%3B%7D%7D%7D)%3B%7D%20else%20%7Balert(%22Please%20visit%20the%20Trello%20board%20you%20want%20to%20convert%20to%20a%20copyable%20HTML-list%20before%20clicking%20this%20bookmark.%22)%7D%7D)())
+Can be used directly at https://thijsdortmann.github.io/trello-to-list/. A bookmarklet version of this tool is also available here.
